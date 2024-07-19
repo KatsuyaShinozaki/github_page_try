@@ -5,7 +5,15 @@
   </head>
 
   <body>
-   {% include_relative _includes/header.html %}
+    <div id="includedContent">
+
+    <script>
+       fetch('_includes/header.html')
+         .then(response => response.text())
+         .then(content => {
+           document.getElementById('includedContent').innerHTML = content;
+         });
+    </script>
     <main>
       <h1>Document Index</h1>
       <a href="index_ja.html">Release Document <b>Japanese</b> Version</a>
